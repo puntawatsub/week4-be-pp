@@ -5,7 +5,7 @@ const {
   getTourById,
   updateTour,
   deleteTour,
-} = require("../controllers/tourController");
+} = require("../controllers/tourControllers");
 const router = express.Router();
 
 // ROUTES

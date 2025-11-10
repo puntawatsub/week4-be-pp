@@ -1,20 +1,15 @@
 const express = require("express");
 const app = express();
 const tourRouter = require("./routes/tourRouter.js");
-
-const {
-  getAllTours,
-  getTourById,
-  createTour,
-  updateTour,
-  deleteTour,
-} = require("./controllers/tourController.js");
+const userRouter = require("./routes/userRouter.js");
 
 // Middleware to parse JSON
 app.use(express.json());
 
 // Route: /tours
 app.use("/tours", tourRouter);
+
+app.use("/users", userRouter);
 
 const port = 4000;
 // Start the server
