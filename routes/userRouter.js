@@ -7,11 +7,15 @@ const {
   deleteUser,
 } = require("../controllers/userControllers");
 
+const auth = require('../middleware/auth');
+
 const router = express.Router();
 
 // ROUTES
 // GET /users
 router.get("/", getAllUsers);
+
+router.use(auth);
 
 // POST /users
 router.post("/", createUser);

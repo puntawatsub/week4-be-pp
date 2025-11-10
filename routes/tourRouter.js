@@ -8,9 +8,13 @@ const {
 } = require("../controllers/tourControllers");
 const router = express.Router();
 
+const auth = require('../middleware/auth');
+
 // ROUTES
 // GET /tours
 router.get("/", getAllTours);
+
+router.use(auth);
 
 // POST /tours
 router.post("/", createTour);
