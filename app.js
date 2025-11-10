@@ -2,6 +2,9 @@ const express = require("express");
 const app = express();
 const tourRouter = require("./routes/tourRouter.js");
 const userRouter = require("./routes/userRouter.js");
+const morgan = require("morgan");
+
+app.use(morgan("tiny"));
 
 // Middleware to parse JSON
 app.use(express.json());
