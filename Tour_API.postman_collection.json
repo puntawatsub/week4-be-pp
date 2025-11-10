@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "5b0e01ac-6b33-4134-867f-5bd38ce374e3",
+		"name": "Tour API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49278465",
+		"_collection_link": "https://puntawas-3958689.postman.co/workspace/Puntawat-Subhamani's-Workspace~6fc5bcf5-5759-49b0-89a0-ff2e40bcf30b/collection/49278465-5b0e01ac-6b33-4134-867f-5bd38ce374e3?action=share&source=collection_link&creator=49278465"
+	},
+	"item": [
+		{
+			"name": "Get all tours",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/tours",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"tours"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a tour",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// get response id and save to variable",
+							"pm.environment.set(\"tourId\", pm.response.json().id);"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Adventures in Tokyo - 5 Day Tour\",\n  \"info\": \"Discover the vibrant mix of tradition and modernity in Tokyo. Visit ancient temples like Senso-ji, explore futuristic districts such as Shibuya and Akihabara, and enjoy authentic Japanese cuisine from sushi to ramen. Guided tours will take you through bustling markets, serene gardens, and hidden alleyways filled with local charm.\",\n  \"image\": \"https://tx00-web-en.github.io/resources/img/tours/tour-2.jpeg\",\n  \"price\": \"1,450\",\n  \"duration\": \"5 days\",\n  \"groupSize\": \"Max 12 people\",\n  \"rating\": 4.8,\n  \"availability\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/tours",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"tours"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get tour by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/tours/:id",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"tours",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "{{tourId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update tour by id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Updated Tour Name\",\n  \"info\": \"Updated tour information...\",\n  \"image\": \"https://www.course-api.com/images/tours/tour-2.jpeg\",\n  \"price\": \"2,095\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/tours/:id",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"tours",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "{{tourId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete tour by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/tours/:id",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"tours",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "{{tourId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
